@@ -82,6 +82,8 @@ const _createClient = (opts, jsOpts) => {
 
   bugsnag._logger.debug('Loaded!')
 
+  NativeClient.observeChanges()
+
   return bugsnag
 }
 

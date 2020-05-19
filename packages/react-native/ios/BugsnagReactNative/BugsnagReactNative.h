@@ -13,6 +13,7 @@
 
 - (NSDictionary *)configure:(NSDictionary *)readableMap;
 
+- (void)observeChanges;
 - (void)updateCodeBundleId:(NSString *)codeBundleId;
 
 - (void)updateMetadata:(NSString *)section

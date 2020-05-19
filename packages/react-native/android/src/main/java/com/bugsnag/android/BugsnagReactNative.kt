@@ -48,12 +48,16 @@ class BugsnagReactNative(private val reactContext: ReactApplicationContext) :
             bridge = reactContext.getJSModule(RCTDeviceEventEmitter::class.java)
             logger = client.logger
             plugin = client.getPlugin(BugsnagReactNativePlugin::class.java)!!
-            plugin.registerForMessageEvents { emitEvent(it) }
             plugin.configure(env.toHashMap()).toWritableMap()
         } catch (exc: Throwable) {
             logFailure("configure", exc)
             WritableNativeMap()
         }
+    }
+
+    @ReactMethod
+    fun observeChanges() {
+      plugin.registerForMessageEvents { emitEvent(it) }
     }
 
     /**

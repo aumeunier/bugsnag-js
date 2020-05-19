@@ -79,6 +79,10 @@ RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(configure:(NSDictionary *)readableMap) {
     return [self.configSerializer serialize:config];
 }
 
+RCT_EXPORT_METHOD(observeChanges) {
+  // TODO
+}
+
 RCT_EXPORT_METHOD(updateMetadata:(NSString *)section
                         withData:(NSDictionary *)update) {
     if (update == nil) {
